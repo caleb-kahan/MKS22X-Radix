@@ -5,6 +5,11 @@ public class Node{
   Node next(){
     return next;
   }
+  public Node(Node next, Node prev, Integer data){
+    this.next = next;
+    this.prev = prev;
+    this.data = data;
+  }
   Node prev(){
     return prev;
   }
@@ -18,9 +23,9 @@ public class Node{
     return data;
   }
   Integer setData(Integer i){
-    data =i;
+    data = i;
   }
   String toString(){
-    return "Previous Node: " + prev.data + " This Node: " + data + " Next Node: "+ next.data;
+    return "Previous Node: " + prev.data + ", This Node: " + data + ", Next Node: " + next.data + ".";
   }
 }
