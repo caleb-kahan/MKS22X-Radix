@@ -1,4 +1,4 @@
-public class MyLinkedList{
+public class MyLinkedList<E>{
   private Node start;
   private Node end;
   private int length;
@@ -6,8 +6,8 @@ public class MyLinkedList{
   public void clear(){
     this = MyLinkedList();
   }
-  public void add(E){
-    Node nod = new Node(null, end, E);
+  public void add(E element){
+    Node nod = new Node(null, end, element);
     end.setNext(nod);
     end = nod;
     length++;
