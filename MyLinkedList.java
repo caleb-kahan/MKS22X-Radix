@@ -31,9 +31,9 @@ public class MyLinkedList<E>{
     }
   }
 
-  private Node start;
-  private Node end;
-  private int length;
+  public Node start;
+  public Node end;
+  public int length;
 
   public void clear(){
     this = MyLinkedList();
