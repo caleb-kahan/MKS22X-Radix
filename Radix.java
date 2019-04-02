@@ -22,19 +22,22 @@ public class Radix{
       for(int i = 0;i<20;i++){
         everything.extend(buckets[i]);
       }
-      if(i==maxDigit) break;
       Node first = everything.start;
       for(int i=0;i<everything.length;i++){
         int x = first.getData();
-        if(x<0){
-          buckets[9-(x%Math.pow(10,digitUpTo))].add(x);
+        if(i==maxDigit){
+          data[i]=x;
         }
         else{
-          buckets[10+(x%Math.pow(10,digitUpTo))].add(x);
+          if(x<0){
+            buckets[9-(x%Math.pow(10,digitUpTo))].add(x);
+          }
+          else{
+            buckets[10+(x%Math.pow(10,digitUpTo))].add(x);
+          }
         }
         first = first.next();
       }
     }
-    
   }
 }
