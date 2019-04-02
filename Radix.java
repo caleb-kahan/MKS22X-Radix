@@ -22,6 +22,7 @@ public class Radix{
       for(int i = 0;i<20;i++){
         everything.extend(buckets[i]);
       }
+      if(i==maxDigit) break;
       Node first = everything.start;
       for(int i=0;i<everything.length;i++){
         int x = first.getData();
@@ -34,5 +35,6 @@ public class Radix{
         first = first.next();
       }
     }
+    
   }
 }
