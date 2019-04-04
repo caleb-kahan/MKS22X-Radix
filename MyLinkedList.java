@@ -51,22 +51,34 @@ public class MyLinkedList<E> implements Iterable<E> {
 	Node nod = new Node(null, null, element);
 	start = nod;
 	end = nod;
+	length++;
     }
     else {
 	Node nod = new Node(null, end, element);
-	if (true)System.out.println("WOWZie");
-	if (nod==null)System.out.println("WOW");
 	end.setNext(nod);
 	nod.setPrev(end);
 	end = nod;
 	length++;
+    }
   }
   public void extend(MyLinkedList<E> other){
-    length +=other.length;
-    start.setNext(other.start);
-    other.start.setPrev(end);
-    end = other.end;
-    other.clear();
+	  if(end==null){
+		//System.out.println("HI");
+		start = other.start;
+		end = other.end;
+		length = other.length;
+		System.out.println(length);
+	  }
+	  else{
+		length +=other.length;
+		end.setNext(other.start);
+		other.start.getData();
+		end.getData();
+		other.start.setPrev(end);
+		end = other.end;
+		other.clear();
+           }
+    
   }
   public E removeFront(){
     length--;

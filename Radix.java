@@ -16,16 +16,16 @@ public class Radix{
         buckets[9-(x%(int)Math.pow(10,digitUpTo))].add(x);
       }
       else{
-	System.out.println(x);
-	System.out.println(digitUpTo);
-	System.out.println((x%(int)Math.pow(10,digitUpTo)));
+	//System.out.println(x);
+	//ystem.out.println(digitUpTo);
+	//System.out.println((x%(int)Math.pow(10,digitUpTo))); 
         buckets[10+(x%(int)Math.pow(10,digitUpTo))].add(x);
       }
     }
     for(int i= digitUpTo; i<=maxDigit; i++){
       MyLinkedList<Integer> everything = new MyLinkedList<Integer>();
       for(int j = 0;j<20;j++){
-        //everything.extend(buckets[i]);
+        everything.extend(buckets[i]);
       }
       MyLinkedList<Integer>.Node first = everything.start;
       for(int j=0;j<everything.length;j++){
