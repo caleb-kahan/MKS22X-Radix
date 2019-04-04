@@ -43,7 +43,14 @@ public class MyLinkedList<E> implements Iterable<E> {
     end = null;
     length = 0;
   }
-  public Iterator<E> iterator(){
+  public String toString(){
+	String returner = "[";
+	MyLinkedListIterator<E> iterator = iterator();
+	while(iterator.hasNext())
+		returner += iterator.next() + " ";
+	return returner+"]";
+  }
+  public MyLinkedListIterator<E> iterator(){
 	return new MyLinkedListIterator<E>(this);
   }
   public void add(E element){
@@ -51,25 +58,23 @@ public class MyLinkedList<E> implements Iterable<E> {
 	Node nod = new Node(null, null, element);
 	start = nod;
 	end = nod;
-	length++;
     }
     else {
 	Node nod = new Node(null, end, element);
 	end.setNext(nod);
-	nod.setPrev(end);
 	end = nod;
-	length++;
     }
+    length++;
   }
   public void extend(MyLinkedList<E> other){
-	  if(end==null){
+	  if(end==null && other !=null){
 		//System.out.println("HI");
 		start = other.start;
 		end = other.end;
 		length = other.length;
-		System.out.println(length);
-	  }
-	  else{
+		other.clear();
+	  }	
+	  else if (other!=null){
 		length +=other.length;
 		end.setNext(other.start);
 		other.start.getData();

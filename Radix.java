@@ -17,16 +17,21 @@ public class Radix{
       }
       else{
 	//System.out.println(x);
-	//ystem.out.println(digitUpTo);
+	//System.out.println(digitUpTo);
 	//System.out.println((x%(int)Math.pow(10,digitUpTo))); 
         buckets[10+(x%(int)Math.pow(10,digitUpTo))].add(x);
       }
     }
+    for(int i=0;i<buckets.length;i++){
+	//System.out.println(buckets[i]);
+    }
+    //System.out.println(maxDigit);
     for(int i= digitUpTo; i<=maxDigit; i++){
       MyLinkedList<Integer> everything = new MyLinkedList<Integer>();
       for(int j = 0;j<20;j++){
         everything.extend(buckets[i]);
       }
+      System.out.println(everything);
       MyLinkedList<Integer>.Node first = everything.start;
       for(int j=0;j<everything.length;j++){
         int x = first.getData();
