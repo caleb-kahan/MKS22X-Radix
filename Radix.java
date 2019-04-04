@@ -7,33 +7,33 @@ public class Radix{
       x = new MyLinkedList();
     }
     for(int x: data){
-      maxDigit = Math.max(maxDigit,Math.log10(x));
+      maxDigit = (int)Math.max(maxDigit,(Math.ceil(Math.log10(x+1))));
     }
     for(int x: data){
       if(x<0){
-        buckets[9-(x%Math.pow(10,digitUpTo))].add(x);
+        buckets[9-(x%(int)Math.pow(10,digitUpTo))].add(x);
       }
       else{
-        buckets[10+(x%Math.pow(10,digitUpTo))].add(x);
+        buckets[10+(x%(int)Math.pow(10,digitUpTo))].add(x);
       }
     }
     for(int i= digitUpTo; i<=maxDigit; i++){
       MyLinkedList<Integer> everything = new MyLinkedList();
-      for(int i = 0;i<20;i++){
+      for(int j = 0;j<20;j++){
         everything.extend(buckets[i]);
       }
       Node first = everything.start;
-      for(int i=0;i<everything.length;i++){
+      for(int j=0;j<everything.length;j++){
         int x = first.getData();
-        if(i==maxDigit){
-          data[i]=x;
+        if(j==maxDigit){
+          data[j]=x;
         }
         else{
           if(x<0){
-            buckets[9-(x%Math.pow(10,digitUpTo))].add(x);
+            buckets[9-(int)(x%Math.pow(10,digitUpTo))].add(x);
           }
           else{
-            buckets[10+(x%Math.pow(10,digitUpTo))].add(x);
+            buckets[10+(int)(x%Math.pow(10,digitUpTo))].add(x);
           }
         }
         first = first.next();
