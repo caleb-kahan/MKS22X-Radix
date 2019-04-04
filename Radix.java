@@ -2,7 +2,7 @@ public class Radix{
   public static void radixsort(int[]data){
     int digitUpTo = 1;
     int maxDigit = 1;
-    MyLinkedList<Integer>[] buckets = new MyLinkedList[20];
+    MyLinkedList<Integer>[] buckets = (MyLinkedList<Integer>[]) new Object [20];
     for(MyLinkedList x: buckets){
       x = new MyLinkedList();
     }
@@ -22,7 +22,7 @@ public class Radix{
       for(int j = 0;j<20;j++){
         everything.extend(buckets[i]);
       }
-      Node first = everything.start;
+      MyLinkedList<Integer>.Node first = everything.start;
       for(int j=0;j<everything.length;j++){
         int x = first.getData();
         if(j==maxDigit){

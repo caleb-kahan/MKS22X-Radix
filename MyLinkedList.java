@@ -1,4 +1,5 @@
-public class MyLinkedList<E>{
+import java.util.Iterator;
+public class MyLinkedList<E> implements Iterable<E> {
   public class Node{
     private Node next,prev;
     private E data;
@@ -24,9 +25,11 @@ public class MyLinkedList<E>{
       return data;
     }
     E setData(E i){
+      E returner = data;
       data = i;
+      return returner;
     }
-    String toString(){
+    public String toString(){
       return "Previous Node: " + prev.data + ", This Node: " + data + ", Next Node: " + next.data + ".";
     }
   }
@@ -34,9 +37,14 @@ public class MyLinkedList<E>{
   public Node start;
   public Node end;
   public int length;
-
+  
   public void clear(){
-    this = MyLinkedList();
+    start = null;
+    end = null;
+    length = 0;
+  }
+  public Iterator<E> iterator(){
+	return new MyLinkedListIterator<E>(this);
   }
   public void add(E element){
     Node nod = new Node(null, end, element);
@@ -47,7 +55,7 @@ public class MyLinkedList<E>{
   public void extend(MyLinkedList<E> other){
     length +=other.length;
     end.setNext(other.start);
-    other.setPrev(end);
+    other.start.setPrev(end);
     end = other.end;
     other.clear();
   }
