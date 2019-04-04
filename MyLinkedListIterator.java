@@ -12,7 +12,9 @@ public class MyLinkedListIterator<E> implements Iterator<E>{
 		return false;
 	}
 	public E next(){
-		return current.getData();
+		E data = current.getData();
+		current = current.next();
+		return data;
 	}
 }
 	
