@@ -13,13 +13,13 @@ public class Radix{
     }
     for(int x: data){
       if(x<0){
-        buckets[9-(x%(int)Math.pow(10,digitUpTo))].add(x);
+        buckets[9-(getDigit(digitUpTo,x))].add(x);
       }
       else{
 	//System.out.println(x);
 	//System.out.println(digitUpTo);
 	//System.out.println((x%(int)Math.pow(10,digitUpTo))); 
-        buckets[10+(x%(int)Math.pow(10,digitUpTo))].add(x);
+        buckets[10+(getDigit(digitUpTo,x))].add(x);
       }
     }
     for(int i=0;i<buckets.length;i++){
@@ -49,5 +49,12 @@ public class Radix{
         first = first.next();
       }
     }
+  }
+  public int getDigit(int digit, int num)
+      num = Math.abs(num);
+      int power = digit -1;
+      int divisor = Math.pow(10,power);
+      num/=divisor;
+      return num%10;
   }
 }
