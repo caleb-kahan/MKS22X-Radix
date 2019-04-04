@@ -47,14 +47,23 @@ public class MyLinkedList<E> implements Iterable<E> {
 	return new MyLinkedListIterator<E>(this);
   }
   public void add(E element){
-    Node nod = new Node(null, end, element);
-    end.setNext(nod);
-    end = nod;
-    length++;
+    if(end==null) {
+	Node nod = new Node(null, null, element);
+	start = nod;
+	end = nod;
+    }
+    else {
+	Node nod = new Node(null, end, element);
+	if (true)System.out.println("WOWZie");
+	if (nod==null)System.out.println("WOW");
+	end.setNext(nod);
+	nod.setPrev(end);
+	end = nod;
+	length++;
   }
   public void extend(MyLinkedList<E> other){
     length +=other.length;
-    end.setNext(other.start);
+    start.setNext(other.start);
     other.start.setPrev(end);
     end = other.end;
     other.clear();
