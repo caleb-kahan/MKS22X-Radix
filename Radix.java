@@ -28,7 +28,7 @@ public class Radix{
     for(int i= digitUpTo; i<=maxDigit; i++){
       MyLinkedList<Integer> everything = new MyLinkedList<Integer>();
       for(int j = 0;j<20;j++){
-	       System.out.println(buckets[j]);
+	       //System.out.println(buckets[j]);
         everything.extend(buckets[j]);
       }
       System.out.println(everything);
@@ -40,10 +40,10 @@ public class Radix{
         }
         else{
           if(x<0){
-            buckets[9-(int)(x%Math.pow(10,digitUpTo))].add(x);
+            buckets[9-(getDigit(i,x))].add(x);
           }
           else{
-            buckets[10+(int)(x%Math.pow(10,digitUpTo))].add(x);
+            buckets[10+(getDigit(i,x))].add(x);
           }
         }
         first = first.next();
