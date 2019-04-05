@@ -16,21 +16,13 @@ public class Radix{
       }
       else{
         buckets[10+(getDigit(1,x))].add(x);
-        //System.out.println("onePos" + (10+(getDigit(digitUpTo,x))));
-
       }
     }
-    for(int i=0;i<buckets.length;i++){
-	//System.out.println(buckets[i]);
-    }
-    //System.out.println(maxDigit);
     for(int i= 1; i<=maxDigit+1; i++){
       MyLinkedList<Integer> everything = new MyLinkedList<Integer>();
       for(int j = 0;j<20;j++){
-	       //System.out.println(buckets[j]);
         everything.extend(buckets[j]);
       }
-      //if(i==maxDigit+1)System.out.println(everything);
       MyLinkedList<Integer>.Node first = everything.start;
       for(int j=0;j<everything.length;j++){
         int x = first.getData();
