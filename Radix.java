@@ -41,10 +41,6 @@ public class Radix{
     }
   }
   public static int getDigit(int digit, int num){
-      num = Math.abs(num);
-      int power = digit -1;
-      int divisor = (int)Math.pow(10,power);
-      num/=divisor;
-      return num%10;
+      return (Math.abs(num)/(int)Math.pow(10,digit-1))%10;
   }
 }
