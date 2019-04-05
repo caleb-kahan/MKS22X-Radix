@@ -30,7 +30,7 @@ public class Radix{
 	       //System.out.println(buckets[j]);
         everything.extend(buckets[j]);
       }
-      if(i==maxDigit+1)System.out.println(everything);
+      //if(i==maxDigit+1)System.out.println(everything);
       MyLinkedList<Integer>.Node first = everything.start;
       for(int j=0;j<everything.length;j++){
         int x = first.getData();
