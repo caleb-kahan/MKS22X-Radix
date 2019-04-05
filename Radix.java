@@ -7,23 +7,21 @@ public class Radix{
     for(int i =0;i<buckets.length;i++){
       buckets[i] = new MyLinkedList<Integer>();
     }
-    double t1 = System.currentTimeMillis();
+    
     for(int x: data){
-      maxDigit = Integer.toString(x).length();
+      maxDigit = Math.max(maxDigit, Integer.toString(x).length());
     }
-    /*for(int x: data){
-      maxDigit = (int)Math.max(maxDigit,(Math.ceil(Math.log10(x+1))));
-    }*/
-    double t2 = System.currentTimeMillis();
-    System.out.println(t2-t1);
+
     for(int x: data){
       if(x<0){
-        buckets[9-(getDigit(1,x))].add(x);
+        buckets[9-x%10].add(x);
       }
       else{
-        buckets[10+(getDigit(1,x))].add(x);
+        buckets[10+x%10].add(x);
       }
     }
+
+
     MyLinkedList<Integer> everything = new MyLinkedList<Integer>();
     for(int i= 1; i<=maxDigit+1; i++){
       for(int j = 0;j<20;j++){
@@ -43,14 +41,28 @@ public class Radix{
       }
       everything.clear();
     }
+   double t1 = System.currentTimeMillis();
    Iterator<Integer> iter = everything.iterator();
+  
+
     int j=0;
     while(j<everything.length){
         data[j] = iter.next();
         j++;
     }
+     double t2 = System.currentTimeMillis();
+    System.out.println(t2-t1);
   }
   public static int getDigit(int digit, int num){
-      return (Math.abs(num)/(int)Math.pow(10,digit-1))%10;
+      if(num<0)num*=-1;
+      if(digit==1) return num % 10;
+      return num/power10(digit-1)%10;
+  }
+  public static int power10 (int power){
+        int returner=1;
+	for(int i=0;i<power;i++){
+		returner*=10;
+	}
+	return returner;
   }
 }
