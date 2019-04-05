@@ -30,14 +30,14 @@ public class MyLinkedList<E> implements Iterable<E> {
       return returner;
     }
     public String toString(){
-      return "Previous Node: " + prev.data + ", This Node: " + data + ", Next Node: " + next.data + ".";
+      return  "Data: " + data;
     }
   }
 
   public Node start;
   public Node end;
   public int length;
-  
+
   public void clear(){
     start = null;
     end = null;
@@ -75,7 +75,7 @@ public class MyLinkedList<E> implements Iterable<E> {
 		//System.out.println(other.length + " " + end);
 		length = other.length;
 		other.clear();
-	  }	
+	  }
 	  else if (other!=null){
 		length +=other.length;
 		end.setNext(other.start);
@@ -85,7 +85,7 @@ public class MyLinkedList<E> implements Iterable<E> {
 		end = other.end;
 		other.clear();
            }
-    
+
   }
   public E removeFront(){
     length--;

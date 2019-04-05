@@ -16,10 +16,9 @@ public class Radix{
         buckets[9-(getDigit(digitUpTo,x))].add(x);
       }
       else{
-	//System.out.println(x);
-	//System.out.println(digitUpTo);
-	//System.out.println((x%(int)Math.pow(10,digitUpTo))); 
         buckets[10+(getDigit(digitUpTo,x))].add(x);
+        //System.out.println("onePos" + (10+(getDigit(digitUpTo,x))));
+
       }
     }
     for(int i=0;i<buckets.length;i++){
@@ -29,8 +28,8 @@ public class Radix{
     for(int i= digitUpTo; i<=maxDigit; i++){
       MyLinkedList<Integer> everything = new MyLinkedList<Integer>();
       for(int j = 0;j<20;j++){
-	//System.out.println(buckets[i].start);
-        everything.extend(buckets[i]);
+	       System.out.println(buckets[i]);
+        everything.extend(buckets[j]);
       }
       System.out.println(everything);
       MyLinkedList<Integer>.Node first = everything.start;
