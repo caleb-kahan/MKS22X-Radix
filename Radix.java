@@ -23,9 +23,9 @@ public class Radix{
       for(int j = 0;j<20;j++){
         everything.extend(buckets[j]);
       }
-      MyLinkedList<Integer>.Node first = everything.start;
+      Iterator<Integer> iter = everything.iterator();
       for(int j=0;j<everything.length;j++){
-        int x = first.getData();
+        int x = iter.next();
         if(i==maxDigit+1){
           data[j]=x;
         }
@@ -37,7 +37,6 @@ public class Radix{
             buckets[10+(getDigit(i,x))].add(x);
           }
         }
-        first = first.next();
       }
     }
   }
