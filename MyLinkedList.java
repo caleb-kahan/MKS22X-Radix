@@ -54,16 +54,10 @@ public class MyLinkedList<E> implements Iterable<E> {
 	return new MyLinkedListIterator<E>(this);
   }
   public void add(E element){
-    if(end==null) {
-	Node nod = new Node(null, null, element);
-	start = nod;
-	end = nod;
-    }
-    else {
-	Node nod = new Node(null, end, element);
-	end.setNext(nod);
-	end = nod;
-    }
+    Node nod = new Node(null, end, element);
+    if(end==null) start = nod;
+    else end.setNext(nod);
+    end = nod;
     length++;
   }
   public void extend(MyLinkedList<E> other){
