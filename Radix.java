@@ -19,7 +19,10 @@ public class Radix{
     //double t5 = System.currentTimeMillis();
     for(int x: data){
       if(x>0){
+        double t4 = System.currentTimeMillis();
         buckets[10+x%10].add(x);
+        double t5 = System.currentTimeMillis();
+        if(t5-t4>1)System.out.println("Subcomponent 2 Time: " + (t5-t4));
       }
       else{
         buckets[9-x%10].add(x);
