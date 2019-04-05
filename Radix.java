@@ -24,17 +24,17 @@ public class Radix{
 	//System.out.println(buckets[i]);
     }
     //System.out.println(maxDigit);
-    for(int i= 1; i<=maxDigit; i++){
+    for(int i= 1; i<=maxDigit+1; i++){
       MyLinkedList<Integer> everything = new MyLinkedList<Integer>();
       for(int j = 0;j<20;j++){
 	       //System.out.println(buckets[j]);
         everything.extend(buckets[j]);
       }
-      System.out.println(everything);
+      if(i==maxDigit+1)System.out.println(everything);
       MyLinkedList<Integer>.Node first = everything.start;
       for(int j=0;j<everything.length;j++){
         int x = first.getData();
-        if(i==maxDigit){
+        if(i==maxDigit+1){
           data[j]=x;
         }
         else{
