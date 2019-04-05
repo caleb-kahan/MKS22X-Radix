@@ -28,7 +28,7 @@ public class Radix{
     for(int i= digitUpTo; i<=maxDigit; i++){
       MyLinkedList<Integer> everything = new MyLinkedList<Integer>();
       for(int j = 0;j<20;j++){
-	       System.out.println(buckets[i]);
+	       System.out.println(buckets[j]);
         everything.extend(buckets[j]);
       }
       System.out.println(everything);
