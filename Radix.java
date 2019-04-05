@@ -1,16 +1,21 @@
 import java.util.*;
 public class Radix{
   public static void radixsort(int[]data){
+    //double t1 = System.currentTimeMillis();
     int maxDigit = 1;
     @SuppressWarnings("unchecked")
     MyLinkedList<Integer>[] buckets = new MyLinkedList[20];
     for(int i =0;i<buckets.length;i++){
       buckets[i] = new MyLinkedList<Integer>();
     }
-    
+    //double t2 = System.currentTimeMillis();
+    //System.out.println("Subcomponent 1 Time: " + (t2-t1));
+    //double t3 = System.currentTimeMillis();
     for(int x: data){
       maxDigit = Math.max(maxDigit, Integer.toString(x).length());
     }
+    //double t4 = System.currentTimeMillis();
+    //System.out.println("Subcomponent 2 Time: " + (t4-t3));
 
     for(int x: data){
       if(x<0){
@@ -23,7 +28,7 @@ public class Radix{
 
 
     MyLinkedList<Integer> everything = new MyLinkedList<Integer>();
-    for(int i= 1; i<=maxDigit+1; i++){
+    for(int i= 2; i<=maxDigit+1; i++){
       for(int j = 0;j<20;j++){
         everything.extend(buckets[j]);
       }

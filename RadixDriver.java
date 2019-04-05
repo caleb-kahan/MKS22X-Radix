@@ -29,7 +29,7 @@ public class RadixDriver{
           System.exit(0);
         }
       }
-      System.out.println(size +"\t\t"+MAX+"\t"+1.0*qtime/btime);
+      System.out.println(size +"\t\t"+MAX+"\t"+1.0*qtime/btime + " Actual Time: " + qtime);
     }
     System.out.println();
   }
