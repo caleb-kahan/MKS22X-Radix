@@ -1,7 +1,6 @@
 import java.util.*;
 public class Radix{
   public static void radixsort(int[]data){
-    int digitUpTo = 1;
     int maxDigit = 1;
     @SuppressWarnings("unchecked")
     MyLinkedList<Integer>[] buckets = new MyLinkedList[20];
@@ -13,10 +12,10 @@ public class Radix{
     }
     for(int x: data){
       if(x<0){
-        buckets[9-(getDigit(digitUpTo,x))].add(x);
+        buckets[9-(getDigit(1,x))].add(x);
       }
       else{
-        buckets[10+(getDigit(digitUpTo,x))].add(x);
+        buckets[10+(getDigit(1,x))].add(x);
         //System.out.println("onePos" + (10+(getDigit(digitUpTo,x))));
 
       }
@@ -25,7 +24,7 @@ public class Radix{
 	//System.out.println(buckets[i]);
     }
     //System.out.println(maxDigit);
-    for(int i= digitUpTo; i<=maxDigit; i++){
+    for(int i= 1; i<=maxDigit; i++){
       MyLinkedList<Integer> everything = new MyLinkedList<Integer>();
       for(int j = 0;j<20;j++){
 	       //System.out.println(buckets[j]);
