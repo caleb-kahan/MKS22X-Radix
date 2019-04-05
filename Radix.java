@@ -29,6 +29,7 @@ public class Radix{
     for(int i= digitUpTo; i<=maxDigit; i++){
       MyLinkedList<Integer> everything = new MyLinkedList<Integer>();
       for(int j = 0;j<20;j++){
+	//System.out.println(buckets[i].start);
         everything.extend(buckets[i]);
       }
       System.out.println(everything);
@@ -50,10 +51,10 @@ public class Radix{
       }
     }
   }
-  public int getDigit(int digit, int num)
+  public static int getDigit(int digit, int num){
       num = Math.abs(num);
       int power = digit -1;
-      int divisor = Math.pow(10,power);
+      int divisor = (int)Math.pow(10,power);
       num/=divisor;
       return num%10;
   }
