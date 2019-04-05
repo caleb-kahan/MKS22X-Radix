@@ -41,17 +41,13 @@ public class Radix{
       }
       everything.clear();
     }
-   double t1 = System.currentTimeMillis();
    Iterator<Integer> iter = everything.iterator();
-  
 
     int j=0;
     while(j<everything.length){
         data[j] = iter.next();
         j++;
     }
-     double t2 = System.currentTimeMillis();
-    System.out.println(t2-t1);
   }
   public static int getDigit(int digit, int num){
       if(num<0)num*=-1;
