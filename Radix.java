@@ -34,7 +34,7 @@ public class Radix{
       MyLinkedList<Integer>.Node first = everything.start;
       for(int j=0;j<everything.length;j++){
         int x = first.getData();
-        if(j==maxDigit){
+        if(i==maxDigit){
           data[j]=x;
         }
         else{
