@@ -17,7 +17,7 @@ public class Radix{
     //double t4 = System.currentTimeMillis();
     //System.out.println("Subcomponent 2 Time: " + (t4-t3));
     //double t5 = System.currentTimeMillis();
-  
+
     for(int x: data){
       if(x>0){
         double t4 = System.currentTimeMillis();
@@ -35,12 +35,11 @@ public class Radix{
 
     MyLinkedList<Integer> everything = new MyLinkedList<Integer>();
     for(int i= 2; i<=maxDigit+1; i++){
-      everything.clear();
       for(int j = 0;j<20;j++){
         everything.extend(buckets[j]);
       }
       if(i==maxDigit+1)
-	  break;
+	       break;
       Iterator<Integer> iter = everything.iterator();
       while(iter.hasNext()){
           int x = iter.next();
@@ -51,14 +50,14 @@ public class Radix{
             buckets[10+(getDigit(i,x))].add(x);
           }
       }
-
+      everything.clear();
     }
+    System.out.println(everything);
    Iterator<Integer> iter = everything.iterator();
-   everything.clear();
-
     int j=0;
     while(j<everything.length){
-        data[j++] = iter.next();
+        data[j] = iter.next();
+        j++;
     }
   }
   public static int getDigit(int digit, int num){
