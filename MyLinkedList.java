@@ -1,26 +1,17 @@
 import java.util.Iterator;
 public class MyLinkedList<E> implements Iterable<E> {
   public class Node{
-    private Node next,prev;
+    private Node next;
     private E data;
 
     Node next(){
       return next;
     }
-    public Node(Node next, Node prev, E data){
-      this.next = next;
-      this.prev = prev;
-      this.data = data;
-    }
-    Node prev(){
-      return prev;
-    }
+    
     void setNext(Node other){
       next = other;
     }
-    void setPrev(Node other){
-      prev = other;
-    }
+
     E getData(){
       return data;
     }
@@ -54,7 +45,7 @@ public class MyLinkedList<E> implements Iterable<E> {
 	return new MyLinkedListIterator<E>(this);
   }
   public void add(E element){
-    Node nod = new Node(null, end, element);
+    Node nod = new Node();
     if(length==0) start = nod;
     else end.setNext(nod);
     end = nod;
@@ -77,10 +68,10 @@ public class MyLinkedList<E> implements Iterable<E> {
            }
 
   }
-  public E removeFront(){
+  /*public E removeFront(){
     length--;
     start = start.next();
     start.prev().setNext(null);
     return start.prev().getData();
-  }
+  }*/
 }
