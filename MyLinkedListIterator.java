@@ -16,6 +16,7 @@ public class MyLinkedListIterator<E> implements Iterator<E>{
 		E data = current.getData();
                 System.out.println("Enter 2");
 		current = current.next();
+                System.out.println("Enter 3");
 		return data;
 	}
 }

@@ -46,6 +46,7 @@ public class MyLinkedList<E> implements Iterable<E> {
   }
   public void add(E element){
     Node nod = new Node();
+    nod.setData(element);
     if(length==0) start = nod;
     else end.setNext(nod);
     end = nod;
