@@ -8,8 +8,8 @@ public class MyLinkedListIterator<E> implements Iterator<E>{
 		end = list.end;
 	}
 	public boolean hasNext(){
-		if(current!=end) return true;
-		return false;
+		if(current.next()==null) return false;
+		return true;
 	}
 	public E next(){
 		E data = current.getData();

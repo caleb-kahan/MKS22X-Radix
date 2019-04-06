@@ -35,9 +35,11 @@ public class Radix{
 
     MyLinkedList<Integer> everything = new MyLinkedList<Integer>();
     for(int i= 2; i<=maxDigit+1; i++){
+      everything.clear();
       for(int j = 0;j<20;j++){
         everything.extend(buckets[j]);
       }
+      if(everything.length==data.length)System.out.println("WHAH");
       if(i==maxDigit+1)
 	       break;
       Iterator<Integer> iter = everything.iterator();
@@ -50,12 +52,11 @@ public class Radix{
             buckets[10+(getDigit(i,x))].add(x);
           }
       }
-      everything.clear();
     }
-    System.out.println(everything);
+    //System.out.println(everything);
    Iterator<Integer> iter = everything.iterator();
     int j=0;
-    while(j<everything.length){
+    while(j<data.length){
         data[j] = iter.next();
         j++;
     }

@@ -26,6 +26,15 @@ public class RadixDriver{
         btime+= t2 - t1;
         if(!Arrays.equals(data1,data2)){
           System.out.println("FAIL TO SORT!");
+					for(int x:data1){
+						System.out.println(x + " ");
+					}
+					System.out.println();
+					System.out.println();
+					for(int x:data2){
+						System.out.println(x + " ");
+					}
+
           System.exit(0);
         }
       }
