@@ -52,6 +52,15 @@ public class Radix{
             buckets[10+(getDigit(i,x))].add(x);
           }
       }
+      //We go one more time: check hasNext();
+      int x = iter.next();
+      if(x<0){
+          buckets[9-(getDigit(i,x))].add(x);
+      }
+      else{
+          buckets[10+(getDigit(i,x))].add(x);
+       }
+
     }
     //System.out.println(everything);
    Iterator<Integer> iter = everything.iterator();
