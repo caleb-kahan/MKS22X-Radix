@@ -17,6 +17,7 @@ public class Radix{
     //double t4 = System.currentTimeMillis();
     //System.out.println("Subcomponent 2 Time: " + (t4-t3));
     //double t5 = System.currentTimeMillis();
+  
     for(int x: data){
       if(x>0){
         double t4 = System.currentTimeMillis();
@@ -28,13 +29,13 @@ public class Radix{
         buckets[9-x%10].add(x);
       }
     }
-    //double t6 = System.currentTimeMillis();
-    //System.out.println("Subcomponent 2 Time: " + (t6-t5));
+    double t6 = System.currentTimeMillis();
+    System.out.println("Subcomponent 2 Time: " + (t6));
 
 
     MyLinkedList<Integer> everything = new MyLinkedList<Integer>();
     for(int i= 2; i<=maxDigit+1; i++){
-      everything = new MyLinkedList<Integer>();
+      everything.clear();
       for(int j = 0;j<20;j++){
         everything.extend(buckets[j]);
       }
@@ -50,8 +51,10 @@ public class Radix{
             buckets[10+(getDigit(i,x))].add(x);
           }
       }
+
     }
    Iterator<Integer> iter = everything.iterator();
+   everything.clear();
 
     int j=0;
     while(j<everything.length){
