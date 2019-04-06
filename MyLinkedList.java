@@ -71,7 +71,7 @@ public class MyLinkedList<E> implements Iterable<E> {
 	  else {
 		length +=other.length;
 		end.setNext(other.start);
-		other.start.setPrev(end);
+		//other.start.setPrev(end);
 		end = other.end;
 		other.clear();
            }
