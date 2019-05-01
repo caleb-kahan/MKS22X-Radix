@@ -7,7 +7,7 @@ public class MyLinkedList<E> implements Iterable<E> {
     Node next(){
       return next;
     }
-    
+
     void setNext(Node other){
       next = other;
     }
@@ -66,7 +66,7 @@ public class MyLinkedList<E> implements Iterable<E> {
 		//other.start.setPrev(end);
 		end = other.end;
 		other.clear();
-           }
+  }
 
   }
   /*public E removeFront(){
