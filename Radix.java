@@ -4,7 +4,7 @@ public class Radix{
     //double t1 = System.currentTimeMillis();
     int maxDigit = 1;
     @SuppressWarnings("unchecked")
-    MyLinkedList<Integer>[] buckets = new MyLinkedList[20];
+    MyLinkedList <Integer> [] buckets = new MyLinkedList[20];
     for(int i =0;i<buckets.length;i++){
       buckets[i] = new MyLinkedList<Integer>();
     }
@@ -13,11 +13,12 @@ public class Radix{
     }
 
     for(int x: data){
-      if(x>0){
+      if(x>=0){
         buckets[10+x%10].add(x);
       }
       else{
-        buckets[9-x%10].add(x);
+        //% returns negative numbers
+        buckets[9+x%10].add(x);
       }
     }
     MyLinkedList<Integer> everything = new MyLinkedList<Integer>();
@@ -58,7 +59,7 @@ public class Radix{
   public static int getDigit(int digit, int num){
       if(num<0)num*=-1;
       for(int i=1;i<digit;i++){
-		num/=10;
+		      num/=10;
       }
       return num % 10;
   }
