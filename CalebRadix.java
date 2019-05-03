@@ -1,6 +1,6 @@
 public class CalebRadix{
   public static void main(String [] args){
-    int [] a = {1,-1,21,-3,1,-5,1,-11,1,1,1};
+    int [] a = {1,-1,21,-3,1,2,32,16,19,-5,1,-11,1,1,1};
     Radix.radixsort(a);
     int [] b = {};
     Radix.radixsort(b);
